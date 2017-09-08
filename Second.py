@@ -48,8 +48,20 @@ testing  = np.array([20,4.3,5.5,0.77])
 testing = testing.reshape(1,-1)
 
 print X_test
-fruit_prediction = knn.predict(testing)
-	
+#fruit_prediction = knn.predict(testing)
+#print lookup_fruit_name[fruit_prediction[0]]
 
+k_range = range(1,20)
+scores = []
 
-print lookup_fruit_name[fruit_prediction[0]]
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors = k)
+    knn.fit(X_train, Y_train)
+    scores.append(knn.score(X_test, Y_test))
+
+plt.figure()
+plt.xlabel('k')
+plt.ylabel('accuracy')
+plt.scatter(k_range, scores)
+plt.xticks([0,5,10,15,20]);
+plt.show()
