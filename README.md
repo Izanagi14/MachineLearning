@@ -1,2 +1,2 @@
 # MachineLearning
-MachineLearning Coursera
+Basic of MachineLearning Coursera
